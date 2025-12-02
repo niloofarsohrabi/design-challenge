@@ -1,0 +1,158 @@
+/** Fonts */
+@font-face {
+  font-family: "Estedad-SemiBold";
+  src: url("./assets/fonts/Estedad-FD-SemiBold.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Estedad-Bold";
+  src: url("./assets/fonts/Estedad-FD-Bold.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Estedad-Medium";
+  src: url("./assets/fonts/Estedad-FD-Medium.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/** Body */
+body {
+  margin-top: 78px;
+  /* background-image: url("./assets/img/cover.png");  
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  height: 100vh; */
+}
+
+/** Classes */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.header-menu {
+  position: relative;
+}
+
+.header-menu-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border-radius: 32px;
+  background-color: #dffca1;
+  border: 0px;
+  padding: 7px 21px;
+  width: 137px;
+  height: 40px;
+}
+
+.header-menu-button-title,
+.header-menu-submenu-button-title {
+  font-family: "Estedad-Bold";
+  font-size: 14px;
+  font-weight: bold;
+  color: #094020;
+}
+
+.header-menu-button:hover,
+.header-menu-submenu-button:hover {
+  cursor: pointer;
+}
+
+.header-menu-submenu {
+  display: none;
+  position: absolute;
+}
+
+.header-menu-submenu-button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  border-radius: 32px;
+  background-color: #dffca1;
+  border: 0px;
+  padding: 7px 21px;
+  width: 137px;
+  height: 40px;
+}
+
+.header-menu-submenu button {
+  margin-top: 12px;
+}
+
+.header-menu-submenu-button-title {
+  font-family: "Estedad-Bold";
+  font-size: 14px;
+  font-weight: bold;
+  color: #094020;
+}
+
+.header-menu-submenu-button-title {
+  color: #093f20;
+}
+
+.header-menu-submenu-button:hover .header-menu-submenu-button-title {
+  color: #dffca1;
+}
+
+.header-title {
+  font-family: "Estedad-SemiBold";
+  font-size: 16px;
+  font-weight: bold;
+  color: #093f20;
+}
+
+.header-details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 123px;
+}
+
+.header-details-first-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-direction: row-reverse;
+}
+
+.header-details-first-text span {
+  font-family: "Estedad-Bold";
+  font-size: 40px;
+  font-weight: bold;
+  color: #094020;
+}
+
+.header-details-second-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row-reverse;
+}
+
+.header-details-second-text span {
+  font-family: "Estedad-Medium";
+  font-size: 36px;
+  color: #094020;
+}
+
+.header-details-arrow-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-details-first-text span:last-child {
+  margin-left: auto;
+}
