@@ -5,6 +5,15 @@ const submenu = document.querySelector(".header-menu-submenu");
 const subMenuButtons = document.querySelectorAll(".header-menu-submenu-button");
 const menuText = document.querySelector(".header-menu-button-title");
 const menuIcon = document.getElementById("header-menu-button-icon");
+const questionIcon = document.querySelector(
+  ".range-slider-container-bottom-section-helper-section-question-image"
+);
+const helperText = document.querySelector(
+  ".range-slider-container-bottom-section-helper-text"
+);
+const helperTextCloseIcon = document.querySelector(
+  ".range-slider-container-bottom-section-helper-text-top-section-close-image"
+);
 
 /** Click on menu button and sub menu open */
 menuButton.addEventListener("click", (e) => {
@@ -33,4 +42,12 @@ subMenuButtons.forEach((btn) => {
     text.style.color = "";
     icon.src = "./assets/icons/emptyCircel.svg";
   });
+});
+
+/** Helper Text */
+questionIcon.addEventListener("click", () => {
+  helperText.classList.toggle("active");
+});
+helperTextCloseIcon.addEventListener("click", () => {
+  helperText.classList.remove("active");
 });
