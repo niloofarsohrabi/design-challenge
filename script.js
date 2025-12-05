@@ -89,3 +89,44 @@ arrowRight.addEventListener("click", () => showSlide(currentIndex + 1));
 slider.style.transition = "transform 0.5s ease";
 
 showSlide(currentIndex);
+
+/** Tab Menu */
+const menuItems = document.querySelectorAll(
+  ".tab-menu-container-bottom-section-menu-item"
+);
+
+const detailSections = document.querySelectorAll(
+  ".tab-menu-container-bottom-section-details-container"
+);
+
+menuItems[0].classList.add("active");
+detailSections[0].style.display = "flex";
+
+menuItems.forEach((btn, index) => {
+  btn.addEventListener("click", () => {
+    menuItems.forEach((item) => item.classList.remove("active"));
+    detailSections.forEach((section) => (section.style.display = "none"));
+
+    btn.classList.add("active");
+    detailSections[index].style.display = "flex";
+  });
+});
+
+/** Pop up */
+const tabMenuImage = document.querySelector(
+  ".tab-menu-container-bottom-section-details-container-left-section"
+);
+const popup = document.querySelector(".pop-up-container");
+const overlay = document.getElementById("overlay");
+const closeButton = document.getElementById("pop-up-close-button");
+
+tabMenuImage.addEventListener("click", (e) => {
+  e.stopPropagation();
+  popup.style.display = "block";
+  overlay.style.display = "block";
+});
+closeButton.addEventListener("click", (e) => {
+  e.stopPropagation();
+  popup.style.display = "none";
+  overlay.style.display = "none";
+});
