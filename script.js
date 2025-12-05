@@ -51,3 +51,41 @@ questionIcon.addEventListener("click", () => {
 helperTextCloseIcon.addEventListener("click", () => {
   helperText.classList.remove("active");
 });
+
+/** Slider */
+const slider = document.querySelector(
+  ".slider-container-bottom-section-slider-image-container"
+);
+const dots = document.querySelectorAll(
+  ".slider-container-bottom-section-buttons-dot-container-single-dot"
+);
+const arrowLeft = document.querySelector(
+  ".slider-container-bottom-section-buttons-arrow-left"
+);
+const arrowRight = document.querySelector(
+  ".slider-container-bottom-section-buttons-arrow-right"
+);
+
+let currentIndex = 0;
+const slideWidth = 549;
+
+function showSlide(index) {
+  if (index > 1) index = 0;
+  if (index < 0) index = 1;
+  currentIndex = index;
+  slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+
+  dots.forEach((dot, i) => {
+    dot.style.backgroundColor =
+      (currentIndex === 0 && i === 3) || (currentIndex === 1 && i === 2)
+        ? "#093F20"
+        : "#FFF";
+  });
+}
+
+arrowLeft.addEventListener("click", () => showSlide(currentIndex - 1));
+arrowRight.addEventListener("click", () => showSlide(currentIndex + 1));
+
+slider.style.transition = "transform 0.5s ease";
+
+showSlide(currentIndex);
