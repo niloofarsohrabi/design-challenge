@@ -80,18 +80,16 @@ const slideWidth = 549;
 
 /** Show slide by index */
 function showSlide(index) {
-  if (index > 1) index = 0;
-  if (index < 0) index = 1;
+  if (index < 1) index = 0;
+  if (index > 0) index = 1;
   currentIndex = index;
 
   slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
 
   // Update dots based on current slide
   dots.forEach((dot, i) => {
-    dot.style.backgroundColor =
-      (currentIndex === 0 && i === 3) || (currentIndex === 1 && i === 2)
-        ? "#093F20"
-        : "#FFF";
+    let activeDot = currentIndex === 0 ? 2 : 3;
+    dot.style.backgroundColor = i === activeDot ? "#093F20" : "#FFF";
   });
 }
 
