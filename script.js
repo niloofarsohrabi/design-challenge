@@ -1,4 +1,5 @@
-/** Menu */
+/** ---------------------- MENU ---------------------- */
+
 /** Variables */
 const menuButton = document.querySelector(".header-menu > .header-menu-button");
 const submenu = document.querySelector(".header-menu-submenu");
@@ -15,11 +16,13 @@ const helperTextCloseIcon = document.querySelector(
   ".range-slider-container-bottom-section-helper-text-top-section-close-image"
 );
 
-/** Click on menu button and sub menu open */
+/** Click on menu button to toggle submenu */
 menuButton.addEventListener("click", (e) => {
   e.stopPropagation();
   const isOpen = submenu.style.display === "block";
   submenu.style.display = isOpen ? "none" : "block";
+
+  // Change menu button background and text/icon color based on open state
   menuButton.style.background = isOpen ? "#DFFCA1" : "#093F20";
   menuText.style.color = isOpen ? "#093F20" : "#DFFCA1";
   menuIcon.src = isOpen
@@ -27,7 +30,7 @@ menuButton.addEventListener("click", (e) => {
     : "./assets/icons/close.svg";
 });
 
-/** Sub menu change background*/
+/** Change submenu button background and icon on hover */
 subMenuButtons.forEach((btn) => {
   const icon = btn.querySelector("img");
   const text = btn.querySelector(".header-menu-submenu-button-title");
@@ -44,15 +47,20 @@ subMenuButtons.forEach((btn) => {
   });
 });
 
-/** Helper Text */
+/** ---------------------- HELPER TEXT ---------------------- */
+
+/** Toggle helper text visibility on question icon click */
 questionIcon.addEventListener("click", () => {
   helperText.classList.toggle("active");
 });
+
+/** Close helper text */
 helperTextCloseIcon.addEventListener("click", () => {
   helperText.classList.remove("active");
 });
 
-/** Slider */
+/** ---------------------- SLIDER ---------------------- */
+
 const slider = document.querySelector(
   ".slider-container-bottom-section-slider-image-container"
 );
@@ -69,12 +77,15 @@ const arrowRight = document.querySelector(
 let currentIndex = 0;
 const slideWidth = 549;
 
+/** Show slide by index */
 function showSlide(index) {
   if (index > 1) index = 0;
   if (index < 0) index = 1;
   currentIndex = index;
+
   slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
 
+  // Update dots based on current slide
   dots.forEach((dot, i) => {
     dot.style.backgroundColor =
       (currentIndex === 0 && i === 3) || (currentIndex === 1 && i === 2)
@@ -87,21 +98,22 @@ arrowLeft.addEventListener("click", () => showSlide(currentIndex - 1));
 arrowRight.addEventListener("click", () => showSlide(currentIndex + 1));
 
 slider.style.transition = "transform 0.5s ease";
-
 showSlide(currentIndex);
 
-/** Tab Menu */
+/** ---------------------- TAB MENU ---------------------- */
+
 const menuItems = document.querySelectorAll(
   ".tab-menu-container-bottom-section-menu-item"
 );
-
 const detailSections = document.querySelectorAll(
   ".tab-menu-container-bottom-section-details-container"
 );
 
+// Initialize first tab active
 menuItems[0].classList.add("active");
 detailSections[0].style.display = "flex";
 
+/** Switch tabs */
 menuItems.forEach((btn, index) => {
   btn.addEventListener("click", () => {
     menuItems.forEach((item) => item.classList.remove("active"));
@@ -112,7 +124,8 @@ menuItems.forEach((btn, index) => {
   });
 });
 
-/** Pop up */
+/** ---------------------- POP-UP ---------------------- */
+
 const tabMenuImage = document.querySelector(
   ".tab-menu-container-bottom-section-details-container-left-section"
 );
@@ -120,13 +133,186 @@ const popup = document.querySelector(".pop-up-container");
 const overlay = document.getElementById("overlay");
 const closeButton = document.getElementById("pop-up-close-button");
 
+/** Open popup */
 tabMenuImage.addEventListener("click", (e) => {
   e.stopPropagation();
   popup.style.display = "block";
   overlay.style.display = "block";
 });
+
+/** Close popup */
 closeButton.addEventListener("click", (e) => {
   e.stopPropagation();
   popup.style.display = "none";
   overlay.style.display = "none";
+});
+
+/** ---------------------- SIGN UP FORM - SMILEY ANIMATION ---------------------- */
+
+const smileyImg = document.querySelector(
+  ".singUp-form-container-bottom-section-details-dynamic img"
+);
+
+const smileyImages = ["./assets/img/better.png", "./assets/img/easier.png"];
+let currentImageIndex = 0;
+
+/** Smooth fade & move animation for smiley image */
+smileyImg.style.transition = "transform 0.4s ease, opacity 0.4s ease";
+
+setInterval(() => {
+  // Fade out and move down
+  smileyImg.style.opacity = "0";
+  smileyImg.style.transform = "translateY(20px)";
+
+  setTimeout(() => {
+    // Change image
+    currentImageIndex++;
+    if (currentImageIndex >= smileyImages.length) currentImageIndex = 0;
+    smileyImg.src = smileyImages[currentImageIndex];
+
+    // Fade in and move back up
+    smileyImg.style.opacity = "1";
+    smileyImg.style.transform = "translateY(0)";
+  }, 200);
+}, 3000);
+
+/** ---------------------- SIGN UP FORM - FIELDS ---------------------- */
+
+const singUpFormContainer = document.querySelector(
+  ".singUp-form-container-bottom-section-user-data"
+);
+
+singUpFormContainer.addEventListener("click", function () {
+  const usernameField = document.querySelector(
+    ".singUp-form-container-bottom-section-user-data-information:nth-child(1) .singUp-form-container-bottom-section-user-data-text-field span"
+  );
+  const phoneNumberField = document.querySelector(
+    ".singUp-form-container-bottom-section-user-data-information:nth-child(2) .singUp-form-container-bottom-section-user-data-text-field span"
+  );
+  const passwordField = document.querySelector(
+    ".singUp-form-container-bottom-section-user-data-information:nth-child(3) .singUp-form-container-bottom-section-user-data-text-field span"
+  );
+  const passwordCondition = document.querySelectorAll(
+    ".singUp-form-container-bottom-section-password-condition span"
+  );
+  const signUpButton = document.querySelector(
+    ".singUp-form-container-bottom-section-buttons-signup"
+  );
+  const signUpIcon = document.querySelector(
+    ".singUp-form-container-bottom-section-buttons-signup img"
+  );
+  const passwordHidden = document.getElementById("password-hidden");
+
+  // Update password conditions style
+  passwordCondition.forEach((item) => {
+    item.style.color = "#093f20";
+    const text = item.textContent.replace(/^\s*-\s*/, "");
+    item.innerHTML = `<img src="./assets/icons/checkCircle.svg" style="vertical-align:middle;"/> ${text}`;
+  });
+
+  usernameField.textContent = "محمد خالدی";
+  phoneNumberField.textContent = "09190415444";
+
+  usernameField.style.color = "#093f20";
+  phoneNumberField.style.color = "#093f20";
+  passwordField.style.color = "#093f20";
+
+  usernameField.style.fontFamily = "Estedad-SemiBold";
+  phoneNumberField.style.fontFamily = "Estedad-SemiBold";
+
+  signUpButton.style.opacity = "100%";
+  signUpIcon.src = "./assets/icons/userPlus2.svg";
+  passwordHidden.style.display = "block";
+});
+
+/** ---------------------- PASSWORD TOGGLE ---------------------- */
+
+const passwordHidden = document.getElementById("password-hidden");
+const passwordField = document.getElementById("password-placeholder");
+
+let realPassword = "SK212148?";
+let isPasswordVisible = false;
+let isFirstClick = true;
+
+/** First click hides password */
+singUpFormContainer.addEventListener("click", function () {
+  if (isFirstClick) {
+    passwordField.textContent = "********";
+    passwordField.style.color = "#093f20";
+    passwordField.style.fontFamily = "Estedad-SemiBold";
+    isFirstClick = false;
+  }
+});
+
+/** Toggle password visibility on eye icon click */
+passwordHidden.addEventListener("click", (event) => {
+  event.stopPropagation();
+
+  if (!isPasswordVisible) {
+    passwordField.textContent = realPassword;
+    passwordHidden.src = "./assets/icons/eye.svg";
+  } else {
+    passwordField.textContent = "********";
+    passwordHidden.src = "./assets/icons/eyeClosed.svg";
+  }
+  isPasswordVisible = !isPasswordVisible;
+});
+
+/** ---------------------- CANCEL FORM ---------------------- */
+
+const cancelFormButton = document.querySelector(
+  ".singUp-form-container-bottom-section-buttons-cancel"
+);
+const signUpDetailsSection = document.querySelector(
+  ".singUp-form-container-bottom-section-details"
+);
+const cancellationFormContainer = document.querySelector(
+  ".singUp-form-container-bottom-section-cancellation-form"
+);
+const closeCancellationFormButton = document.querySelector(
+  ".singUp-form-container-bottom-section-cancellation-form-buttons"
+);
+
+/** Open cancellation form */
+cancelFormButton.addEventListener("click", (event) => {
+  event.stopPropagation();
+  singUpFormContainer.style.display = "none";
+  signUpDetailsSection.style.display = "none";
+  cancellationFormContainer.style.display = "flex";
+});
+
+/** Close cancellation form */
+closeCancellationFormButton.addEventListener("click", (event) => {
+  event.stopPropagation();
+  singUpFormContainer.style.display = "flex";
+  signUpDetailsSection.style.display = "flex";
+  cancellationFormContainer.style.display = "none";
+});
+
+/** ---------------------- SUCCESS FORM ---------------------- */
+
+const signUpButton = document.querySelector(
+  ".singUp-form-container-bottom-section-buttons-signup"
+);
+const successFormContainer = document.querySelector(
+  ".singUp-form-container-bottom-section-success-form"
+);
+const closeSuccessFormButton = document.querySelector(
+  ".singUp-form-container-bottom-section-success-form-buttons"
+);
+
+/** Go to success form */
+signUpButton.addEventListener("click", (event) => {
+  event.stopPropagation();
+  singUpFormContainer.style.display = "none";
+  signUpDetailsSection.style.display = "none";
+  successFormContainer.style.display = "flex";
+});
+
+/** Close success form */
+closeSuccessFormButton.addEventListener("click", (event) => {
+  event.stopPropagation();
+  successFormContainer.style.display = "none";
+  singUpFormContainer.style.display = "flex";
+  signUpDetailsSection.style.display = "flex";
 });

@@ -18,22 +18,34 @@
         </button>
 
         <div class="header-menu-submenu">
-          <button class="header-menu-submenu-button">
+          <button
+            class="header-menu-submenu-button"
+            onclick="document.getElementById('section1').scrollIntoView({behavior: 'smooth', block: 'start'})"
+          >
             <span class="header-menu-submenu-button-title">اسلایدر</span>
             <img
               id="header-menu-submenu-button-icon"
               src="./assets/icons/emptyCircel.svg"
             />
           </button>
-          <button class="header-menu-submenu-button">
+          <button
+            class="header-menu-submenu-button"
+            onclick="document.getElementById('section2').scrollIntoView({behavior: 'smooth', block: 'start'})"
+          >
             <span class="header-menu-submenu-button-title">تب منو</span>
             <img src="./assets/icons/emptyCircel.svg" />
           </button>
-          <button class="header-menu-submenu-button">
+          <button
+            class="header-menu-submenu-button"
+            onclick="document.getElementById('section3').scrollIntoView({behavior: 'smooth', block: 'start'})"
+          >
             <span class="header-menu-submenu-button-title">فرم ثبت نام </span>
             <img src="./assets/icons/emptyCircel.svg" />
           </button>
-          <button class="header-menu-submenu-button">
+          <button
+            class="header-menu-submenu-button"
+            onclick="document.getElementById('section4').scrollIntoView({behavior: 'smooth', block: 'start'})"
+          >
             <span class="header-menu-submenu-button-title">رنج اسلایدر</span>
             <img src="./assets/icons/emptyCircel.svg" />
           </button>
@@ -60,111 +72,8 @@
       </div>
     </div>
 
-    <!-- Range Slider -->
-    <div class="range-slider-container">
-      <div class="range-slider-container-top-section">
-        <div class="range-slider-container-top-section-english-title">
-          <span>Range Slider</span>
-        </div>
-        <div class="range-slider-container-top-section-persian-title">
-          <span>رنج اسلایدر</span>
-          <img src="./assets/icons/fillCircle.svg" />
-        </div>
-      </div>
-
-      <div class="range-slider-container-bottom-section">
-        <div class="range-slider-container-bottom-section-text">
-          <span>عدد</span>
-          <div class="range-slider-container-bottom-section-text-number">
-            20
-          </div>
-          <span>انتخاب شده</span>
-
-          <div class="range-slider-container-bottom-section-helper-section">
-            <img
-              class="range-slider-container-bottom-section-helper-section-question-image"
-              src="./assets/icons/question.svg"
-            />
-
-            <div class="range-slider-container-bottom-section-helper-text">
-              <div
-                class="range-slider-container-bottom-section-helper-text-top-section"
-              >
-                <img
-                  class="range-slider-container-bottom-section-helper-text-top-section-close-image"
-                  src="./assets/icons/closeDeepGreen.svg"
-                />
-                <span>متن راهنما</span>
-              </div>
-              <div
-                class="range-slider-container-bottom-section-helper-text-bottom-section"
-              >
-                <span
-                  >لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و
-                  با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه
-                  است</span
-                >
-              </div>
-              <div
-                class="range-slider-container-bottom-section-helper-text-bottom-section-arrow"
-              ></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="range-slider-container-bottom-section-slider-wrapper">
-          <div class="range-slider-container-bottom-section-slider-wrapper-bar">
-            <div
-              class="range-slider-container-bottom-section-slider-wrapper-text"
-            >
-              100
-            </div>
-            <div
-              class="range-slider-container-bottom-section-slider-wrapper-tracker-section"
-            >
-              <div
-                class="range-slider-container-bottom-section-slider-wrapper-tracker-section-thumb"
-              ></div>
-              <div
-                class="range-slider-container-bottom-section-slider-wrapper-tracker-section-bar"
-              ></div>
-            </div>
-            <div
-              class="range-slider-container-bottom-section-slider-wrapper-text"
-            >
-              10
-            </div>
-          </div>
-          <div
-            class="range-slider-container-bottom-section-slider-wrapper-separator-line"
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <div
-            class="range-slider-container-bottom-section-slider-wrapper-ticks"
-          >
-            <span>90</span>
-            <span>80</span>
-            <span>70</span>
-            <span>60</span>
-            <span>50</span>
-            <span>40</span>
-            <span>30</span>
-            <span>20</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- Slider -->
-    <div class="slider-container">
+    <div class="slider-container" id="section1">
       <div class="slider-container-top-section">
         <div class="slider-container-top-section-english-title">
           <span>Slider</span>
@@ -234,8 +143,9 @@
       </div>
     </div>
 
+    <div class="separator"></div>
     <!-- Tab Menu -->
-    <div class="tab-menu-container">
+    <div class="tab-menu-container" id="section2">
       <div class="tab-menu-container-top-section">
         <div class="tab-menu-container-top-section-english-title">
           <span>Tab Menu</span>
@@ -447,6 +357,241 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="separator"></div>
+    <!-- SingUp Form -->
+    <div class="singUp-form-container" id="section3">
+      <div class="singUp-form-container-top-section">
+        <div class="singUp-form-container-top-section-english-title">
+          <span>Sing Up Form</span>
+        </div>
+        <div class="singUp-form-container-top-section-persian-title">
+          <span> فرم ثبت نام</span>
+          <img src="./assets/icons/fillCircle.svg" />
+        </div>
+      </div>
+
+      <div class="singUp-form-container-bottom-section">
+        <div class="singUp-form-container-bottom-section-user-data">
+          <div
+            class="singUp-form-container-bottom-section-user-data-information"
+          >
+            <span>نام کاربری</span>
+            <div
+              class="singUp-form-container-bottom-section-user-data-text-field"
+            >
+              <span> مثلا:حمید رضا </span>
+            </div>
+          </div>
+
+          <div
+            class="singUp-form-container-bottom-section-user-data-information"
+          >
+            <span>شماره تماس</span>
+            <div
+              class="singUp-form-container-bottom-section-user-data-text-field"
+            >
+              <span>091211445588</span>
+            </div>
+          </div>
+
+          <div
+            class="singUp-form-container-bottom-section-user-data-information"
+          >
+            <span>رمز عبور</span>
+            <div
+              class="singUp-form-container-bottom-section-user-data-text-field"
+            >
+              <img src="./assets/icons/eyeClosed.svg" id="password-hidden" />
+              <span id="password-placeholder"
+                >رمز عبور مورد نظر خود را وارد کنید ...</span
+              >
+            </div>
+          </div>
+
+          <div class="singUp-form-container-bottom-section-password-condition">
+            <span>- حداقل باید 8 حرف باشد</span>
+            <span>- باید شامل عدد باشد</span>
+            <span>- شامل حروف خاص مثل:؟-#% باشد</span>
+          </div>
+
+          <div class="singUp-form-container-bottom-section-buttons">
+            <div class="singUp-form-container-bottom-section-buttons-cancel">
+              <span>انصراف</span>
+            </div>
+            <div class="singUp-form-container-bottom-section-buttons-signup">
+              <span>ثبت نام</span>
+              <img src="./assets/icons/userPlus.svg" />
+            </div>
+          </div>
+        </div>
+
+        <div class="singUp-form-container-bottom-section-details">
+          <img src="./assets/img/letMakeWorldTogether.png" />
+          <img
+            class="singUp-form-container-bottom-section-details-image-line"
+            src="./assets/img/line.png"
+          />
+          <div class="singUp-form-container-bottom-section-details-dynamic">
+            <img src="./assets/img/better.png" />
+          </div>
+          <div class="singUp-form-container-bottom-section-details-circle">
+            <img src="./assets/icons/smiley.svg" />
+          </div>
+        </div>
+
+        <div class="singUp-form-container-bottom-section-cancellation-form">
+          <div
+            class="singUp-form-container-bottom-section-cancellation-form-icon"
+          >
+            <img src="./assets/icons/smileySad.svg" />
+          </div>
+          <span
+            class="singUp-form-container-bottom-section-cancellation-form-first-text"
+            >مشکلی پیش آمده!</span
+          >
+          <span
+            class="singUp-form-container-bottom-section-cancellation-form-second-text"
+          >
+            ثبت نام شما انجام نشد...
+          </span>
+          <div
+            class="singUp-form-container-bottom-section-cancellation-form-buttons"
+          >
+            <span> بازگشت </span>
+          </div>
+        </div>
+
+        <div class="singUp-form-container-bottom-section-success-form">
+          <div class="singUp-form-container-bottom-section-success-form-icon">
+            <img src="./assets/icons/smiley.svg" />
+          </div>
+          <span
+            class="singUp-form-container-bottom-section-success-form-first-text"
+          >
+            ثبت نام شما با موفقیت انجام شد...
+          </span>
+          <span
+            class="singUp-form-container-bottom-section-success-form-second-text"
+          >
+            به مجموعه ما خوش آمدید ...
+          </span>
+          <div
+            class="singUp-form-container-bottom-section-success-form-buttons"
+          >
+            <span>بازگشت</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="separator"></div>
+    <!-- Range Slider -->
+    <div class="range-slider-container" id="section4">
+      <div class="range-slider-container-top-section">
+        <div class="range-slider-container-top-section-english-title">
+          <span>Range Slider</span>
+        </div>
+        <div class="range-slider-container-top-section-persian-title">
+          <span>رنج اسلایدر</span>
+          <img src="./assets/icons/fillCircle.svg" />
+        </div>
+      </div>
+
+      <div class="range-slider-container-bottom-section">
+        <div class="range-slider-container-bottom-section-text">
+          <span>عدد</span>
+          <div class="range-slider-container-bottom-section-text-number">
+            20
+          </div>
+          <span>انتخاب شده</span>
+
+          <div class="range-slider-container-bottom-section-helper-section">
+            <img
+              class="range-slider-container-bottom-section-helper-section-question-image"
+              src="./assets/icons/question.svg"
+            />
+
+            <div class="range-slider-container-bottom-section-helper-text">
+              <div
+                class="range-slider-container-bottom-section-helper-text-top-section"
+              >
+                <img
+                  class="range-slider-container-bottom-section-helper-text-top-section-close-image"
+                  src="./assets/icons/closeDeepGreen.svg"
+                />
+                <span>متن راهنما</span>
+              </div>
+              <div
+                class="range-slider-container-bottom-section-helper-text-bottom-section"
+              >
+                <span
+                  >لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و
+                  با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه
+                  است</span
+                >
+              </div>
+              <div
+                class="range-slider-container-bottom-section-helper-text-bottom-section-arrow"
+              ></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="range-slider-container-bottom-section-slider-wrapper">
+          <div class="range-slider-container-bottom-section-slider-wrapper-bar">
+            <div
+              class="range-slider-container-bottom-section-slider-wrapper-text"
+            >
+              100
+            </div>
+            <div
+              class="range-slider-container-bottom-section-slider-wrapper-tracker-section"
+            >
+              <div
+                class="range-slider-container-bottom-section-slider-wrapper-tracker-section-thumb"
+              ></div>
+              <div
+                class="range-slider-container-bottom-section-slider-wrapper-tracker-section-bar"
+              ></div>
+            </div>
+            <div
+              class="range-slider-container-bottom-section-slider-wrapper-text"
+            >
+              10
+            </div>
+          </div>
+          <div
+            class="range-slider-container-bottom-section-slider-wrapper-separator-line"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div
+            class="range-slider-container-bottom-section-slider-wrapper-ticks"
+          >
+            <span>90</span>
+            <span>80</span>
+            <span>70</span>
+            <span>60</span>
+            <span>50</span>
+            <span>40</span>
+            <span>30</span>
+            <span>20</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- The end section -->
+    <div class="end-section">
+      <span class="end-section">THE END</span>
+      <img src="./assets/img/flower.png" />
     </div>
 
     <!-- Pop Up -->
