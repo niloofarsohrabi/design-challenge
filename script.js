@@ -125,7 +125,7 @@ menuItems.forEach((btn, index) => {
 
 /** ---------------------- POP-UP ---------------------- */
 
-const tabMenuImage = document.querySelector(
+const tabMenuImages = document.querySelectorAll(
   ".tab-menu-container-bottom-section-details-container-left-section"
 );
 const popup = document.querySelector(".pop-up-container");
@@ -133,10 +133,12 @@ const overlay = document.getElementById("overlay");
 const closeButton = document.getElementById("pop-up-close-button");
 
 /** Open popup */
-tabMenuImage.addEventListener("click", (e) => {
-  e.stopPropagation();
-  popup.style.display = "block";
-  overlay.style.display = "block";
+tabMenuImages.forEach((img) => {
+  img.addEventListener("click", (e) => {
+    e.stopPropagation();
+    popup.style.display = "block";
+    overlay.style.display = "block";
+  });
 });
 
 /** Close popup */
@@ -145,7 +147,6 @@ closeButton.addEventListener("click", (e) => {
   popup.style.display = "none";
   overlay.style.display = "none";
 });
-
 /** ---------------------- SIGN UP FORM - SMILEY ANIMATION ---------------------- */
 
 const smileyImg = document.querySelector(
