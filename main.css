@@ -458,6 +458,7 @@ body {
   flex-direction: column;
   overflow: hidden;
   gap: 32px;
+  position: relative;
 }
 
 .slider-container-bottom-section-buttons {
@@ -477,6 +478,25 @@ body {
   height: 349px;
   display: flex;
   justify-content: flex-end;
+}
+
+.slider-container-bottom-section-blur {
+  width: 192px;
+  height: 349px;
+  position: absolute;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0), #ffffff9e);
+  z-index: 10;
+  top: 49px;
+  left: 0;
+}
+
+.slider-container-bottom-section-last-slide-blur {
+  width: 192px;
+  height: 349px;
+  position: absolute;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), #ffffff9e);
+  top: 49px;
+  right: 0;
 }
 
 .slider-container-bottom-section-buttons-arrow-left,
