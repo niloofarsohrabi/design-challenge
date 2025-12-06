@@ -575,7 +575,7 @@ body {
   height: 48px;
   background-color: #dffca1;
   border-radius: 16px;
-  padding: 0px 4px;
+  padding: 4px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -602,7 +602,6 @@ body {
   color: #094020;
   margin-right: 4px;
 }
-
 .tab-menu-container-bottom-section-menu-item.active {
   background-color: #fff;
   border-radius: 12px;
@@ -706,7 +705,7 @@ body {
   background-color: #ffffff;
   border-radius: 40px;
   position: absolute;
-  top: 50%;
+  top: 170%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: none;
