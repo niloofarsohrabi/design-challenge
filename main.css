@@ -34,6 +34,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Poppins-Bold";
+  src: url("./assets/fonts/Poppins-Bold.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -792,10 +799,47 @@ body {
   left: 287px;
 }
 
-.singUp-form-container-bottom-section-details-dynamic {
+.singUp-form-container-bottom-section-details-dynamic-container {
+  background-color: white;
+  width: 211px;
   position: absolute;
   top: 187px;
   left: 106px;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 60px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.koft {
+  transition: transform 0.5s ease;
+  transform: translateY(100px);
+}
+/* .koft.move {
+  transform: translateY(100px);
+} */
+
+.singUp-form-container-bottom-section-details-dynamic-better {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: fit-content;
+  font-family: "Poppins-Bold";
+  font-size: 50px;
+  color: #093f20;
+}
+
+.singUp-form-container-bottom-section-details-dynamic-easier {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: fit-content;
+  font-family: "Poppins-Bold";
+  font-size: 50px;
+  color: #093f20;
 }
 
 .singUp-form-container-bottom-section-details-circle {

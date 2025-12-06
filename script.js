@@ -100,7 +100,6 @@ slider.style.transition = "transform 0.5s ease";
 showSlide(currentIndex);
 
 /** ---------------------- TAB MENU ---------------------- */
-
 const menuItems = document.querySelectorAll(
   ".tab-menu-container-bottom-section-menu-item"
 );
@@ -112,19 +111,43 @@ const detailSections = document.querySelectorAll(
 menuItems[0].classList.add("active");
 detailSections[0].style.display = "flex";
 
-/** Switch tabs */
+// Add .show to first tab's span
+const firstSpan = detailSections[0].querySelector(
+  ".tab-menu-container-bottom-section-details-container-right-section-title span"
+);
+if (firstSpan) firstSpan.classList.add("show");
+
 menuItems.forEach((btn, index) => {
   btn.addEventListener("click", () => {
     menuItems.forEach((item) => item.classList.remove("active"));
-    detailSections.forEach((section) => (section.style.display = "none"));
 
+    // Hide all detail sections & remove show from spans
+    detailSections.forEach((section) => {
+      section.style.display = "none";
+      const span = section.querySelector(
+        ".tab-menu-container-bottom-section-details-container-right-section-title span"
+      );
+      if (span) span.classList.remove("show");
+    });
+
+    // Activate current menu item
     btn.classList.add("active");
-    detailSections[index].style.display = "flex";
+    const currentSection = detailSections[index];
+    currentSection.style.display = "flex";
+
+    // Animate span
+    const currentSpan = currentSection.querySelector(
+      ".tab-menu-container-bottom-section-details-container-right-section-title span"
+    );
+    if (currentSpan) {
+      // Reset for re-animation
+      currentSpan.classList.remove("show");
+      void currentSpan.offsetWidth; // force reflow
+      currentSpan.classList.add("show");
+    }
   });
 });
-
 /** ---------------------- POP-UP ---------------------- */
-
 const tabMenuImages = document.querySelectorAll(
   ".tab-menu-container-bottom-section-details-container-left-section"
 );
@@ -148,33 +171,6 @@ closeButton.addEventListener("click", (e) => {
   overlay.style.display = "none";
 });
 /** ---------------------- SIGN UP FORM - SMILEY ANIMATION ---------------------- */
-
-const smileyImg = document.querySelector(
-  ".singUp-form-container-bottom-section-details-dynamic img"
-);
-
-const smileyImages = ["./assets/img/better.png", "./assets/img/easier.png"];
-let currentImageIndex = 0;
-
-/** Smooth fade & move animation for smiley image */
-smileyImg.style.transition = "transform 0.4s ease, opacity 0.4s ease";
-
-setInterval(() => {
-  // Fade out and move down
-  smileyImg.style.opacity = "0";
-  smileyImg.style.transform = "translateY(20px)";
-
-  setTimeout(() => {
-    // Change image
-    currentImageIndex++;
-    if (currentImageIndex >= smileyImages.length) currentImageIndex = 0;
-    smileyImg.src = smileyImages[currentImageIndex];
-
-    // Fade in and move back up
-    smileyImg.style.opacity = "1";
-    smileyImg.style.transform = "translateY(0)";
-  }, 200);
-}, 3000);
 
 /** ---------------------- SIGN UP FORM - FIELDS ---------------------- */
 
