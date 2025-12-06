@@ -82,8 +82,19 @@ body {
 }
 
 .header-menu-submenu {
-  display: none;
   position: absolute;
+  overflow: hidden;
+
+  transform-origin: top;
+  transform: scaleY(0);
+  opacity: 0;
+
+  transition: transform 0.5s ease, opacity 0.4s ease;
+}
+
+.header-menu-submenu.show {
+  transform: scaleY(1);
+  opacity: 1;
 }
 
 .header-menu-submenu-button {
@@ -897,7 +908,13 @@ body {
   justify-content: center;
   flex-direction: column;
   width: 100%;
+  opacity: 1;
   display: none;
+}
+
+.singUp-form-container-bottom-section-cancellation-form.fading {
+  transition: opacity 0.5s ease;
+  opacity: 0;
 }
 
 .singUp-form-container-bottom-section-cancellation-form-first-text {
@@ -905,6 +922,8 @@ body {
   font-size: 18px;
   color: #3f0909;
   direction: rtl;
+  margin-top: 20px;
+  opacity: 0;
 }
 
 .singUp-form-container-bottom-section-cancellation-form-second-text {
@@ -912,6 +931,7 @@ body {
   font-size: 14px;
   color: #777777;
   direction: rtl;
+  opacity: 0;
 }
 
 .singUp-form-container-bottom-section-cancellation-form-buttons {
@@ -923,6 +943,7 @@ body {
   align-items: center;
   justify-content: center;
   margin-top: 24px;
+  opacity: 0;
 }
 
 .singUp-form-container-bottom-section-cancellation-form-buttons span {
@@ -935,6 +956,13 @@ body {
   cursor: pointer;
 }
 
+.singUp-form-container-bottom-section-cancellation-form-first-text.fading,
+.singUp-form-container-bottom-section-cancellation-form-second-text.fading,
+.singUp-form-container-bottom-section-cancellation-form-buttons.fading {
+  transition: opacity 1s ease;
+  opacity: 1;
+}
+
 .singUp-form-container-bottom-section-cancellation-form-icon {
   width: 82px;
   height: 82px;
@@ -944,6 +972,17 @@ body {
   align-items: center;
   justify-content: center;
   margin-bottom: 10px;
+  transition: transform 0.5s ease, width 0.5s ease, height 0.5s ease;
+  transition-delay: 0.5s;
+}
+
+.singUp-form-container-bottom-section-cancellation-form-icon img {
+  width: 50px;
+  height: 50px;
+}
+
+.singUp-form-container-bottom-section-cancellation-form-icon.move {
+  transform: translateY(10px) scale(1.2);
 }
 
 .singUp-form-container-bottom-section-success-form {

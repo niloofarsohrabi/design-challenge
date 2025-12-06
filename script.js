@@ -17,12 +17,13 @@ const helperTextCloseIcon = document.querySelector(
 );
 
 /** Click on menu button to toggle submenu */
+
 menuButton.addEventListener("click", (e) => {
   e.stopPropagation();
-  const isOpen = submenu.style.display === "block";
-  submenu.style.display = isOpen ? "none" : "block";
 
-  // Change menu button background and text/icon color based on open state
+  const isOpen = submenu.classList.contains("show");
+  submenu.classList.toggle("show");
+
   menuButton.style.background = isOpen ? "#DFFCA1" : "#093F20";
   menuText.style.color = isOpen ? "#093F20" : "#DFFCA1";
   menuIcon.src = isOpen
@@ -279,14 +280,42 @@ cancelFormButton.addEventListener("click", (event) => {
   singUpFormContainer.style.display = "none";
   signUpDetailsSection.style.display = "none";
   cancellationFormContainer.style.display = "flex";
+  document.getElementById("sadContainer").classList.remove("fading");
+  document.getElementById("sadIcon").classList.remove("move");
+  document
+    .getElementById("cancellationFormFirstText")
+    .classList.remove("fading");
+  document
+    .getElementById("cancellationFormSecondText")
+    .classList.remove("fading");
+  document.getElementById("cancellationFormButton").classList.remove("fading");
+
+  setTimeout(() => {
+    document.getElementById("sadIcon").classList.add("move");
+  }, 10);
+
+  setTimeout(() => {
+    document
+      .getElementById("cancellationFormFirstText")
+      .classList.add("fading");
+
+    document
+      .getElementById("cancellationFormSecondText")
+      .classList.add("fading");
+
+    document.getElementById("cancellationFormButton").classList.add("fading");
+  }, 700);
 });
 
 /** Close cancellation form */
 closeCancellationFormButton.addEventListener("click", (event) => {
   event.stopPropagation();
-  singUpFormContainer.style.display = "flex";
-  signUpDetailsSection.style.display = "flex";
-  cancellationFormContainer.style.display = "none";
+  document.getElementById("sadContainer").classList.add("fading");
+  setTimeout(() => {
+    singUpFormContainer.style.display = "flex";
+    signUpDetailsSection.style.display = "flex";
+    cancellationFormContainer.style.display = "none";
+  }, 500);
 });
 
 /** ---------------------- SUCCESS FORM ---------------------- */
