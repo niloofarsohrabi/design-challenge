@@ -147,6 +147,7 @@ menuItems.forEach((btn, index) => {
     }
   });
 });
+
 /** ---------------------- POP-UP ---------------------- */
 const tabMenuImages = document.querySelectorAll(
   ".tab-menu-container-bottom-section-details-container-left-section"
@@ -171,6 +172,30 @@ closeButton.addEventListener("click", (e) => {
   overlay.style.display = "none";
 });
 /** ---------------------- SIGN UP FORM - SMILEY ANIMATION ---------------------- */
+let textDirection = "top";
+
+setInterval(() => {
+  if (textDirection === "top") {
+    console.log("top");
+    textDirection = "down";
+    document
+      .getElementById("signup-dynamic-text-container")
+      .classList.add("moveup");
+    document
+      .getElementById("signup-dynamic-text-container")
+      .classList.remove("movedown");
+  } else {
+    console.log("down");
+
+    textDirection = "top";
+    document
+      .getElementById("signup-dynamic-text-container")
+      .classList.add("movedown");
+    document
+      .getElementById("signup-dynamic-text-container")
+      .classList.remove("moveup");
+  }
+}, 1500);
 
 /** ---------------------- SIGN UP FORM - FIELDS ---------------------- */
 
@@ -284,20 +309,17 @@ cancelFormButton.addEventListener("click", (event) => {
     .getElementById("cancellationFormSecondText")
     .classList.remove("fading");
   document.getElementById("cancellationFormButton").classList.remove("fading");
-
+  document.getElementById("sadContainer").classList.add("moveup");
   setTimeout(() => {
     document.getElementById("sadIcon").classList.add("move");
   }, 10);
-
   setTimeout(() => {
     document
       .getElementById("cancellationFormFirstText")
       .classList.add("fading");
-
     document
       .getElementById("cancellationFormSecondText")
       .classList.add("fading");
-
     document.getElementById("cancellationFormButton").classList.add("fading");
   }, 700);
 });
@@ -306,6 +328,7 @@ cancelFormButton.addEventListener("click", (event) => {
 closeCancellationFormButton.addEventListener("click", (event) => {
   event.stopPropagation();
   document.getElementById("sadContainer").classList.add("fading");
+
   setTimeout(() => {
     singUpFormContainer.style.display = "flex";
     signUpDetailsSection.style.display = "flex";

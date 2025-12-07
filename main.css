@@ -635,7 +635,7 @@ body {
   text-align-last: right;
 }
 
-.tab-menu-container-bottom-section-details-container-right-section-title-conatiner {
+.tab-menu-container-bottom-section-details-container-right-section-title-container {
   display: flex;
   align-items: end;
   flex-direction: column;
@@ -654,6 +654,16 @@ body {
   font-size: 18px;
   font-weight: bold;
   color: #094020;
+  display: inline-block;
+  opacity: 0;
+  transform: translateX(15px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.tab-menu-container-bottom-section-details-container-right-section-title
+  span.show {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .tab-menu-container-bottom-section-details-container-right-section-image {
@@ -814,32 +824,36 @@ body {
   border-radius: 16px;
   overflow: hidden;
 }
-.koft {
-  transition: transform 0.5s ease;
-  transform: translateY(100px);
+
+.signup-dynamic-details-text-container {
+  transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-/* .koft.move {
-  transform: translateY(100px);
-} */
+.signup-dynamic-details-text-container.moveup {
+  transform: translateY(-80px);
+}
+
+.signup-dynamic-details-text-container.movedown {
+  transform: translateY(0px);
+}
 
 .singUp-form-container-bottom-section-details-dynamic-better {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  height: fit-content;
   font-family: "Poppins-Bold";
   font-size: 50px;
+  position: relative;
+  bottom: 10px;
   color: #093f20;
 }
 
 .singUp-form-container-bottom-section-details-dynamic-easier {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  height: fit-content;
   font-family: "Poppins-Bold";
   font-size: 50px;
   color: #093f20;
+  position: relative;
+  bottom: 4px;
 }
 
 .singUp-form-container-bottom-section-details-circle {
